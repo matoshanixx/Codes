@@ -1,0 +1,66 @@
+class StudentLoan:
+    def __init__(self, student_name, principal, interest_rate, duration):
+        self.student_name = student_name
+        self.principal = principal
+        self.interest_rate = interest_rate
+        self.duration = duration
+
+    def calculate_monthly_payment(self):
+        monthly_interest_rate = self.interest_rate / 12 / 100
+        num_payments = self.duration * 12
+        monthly_payment = (self.principal * monthly_interest_rate) / (1 - (1 + monthly_interest_rate) ** -num_payments)
+        return monthly_payment
+
+    def __str__(self):
+        output = "Loan Details for " + self.student_name + "\n"
+        output += "Principal Amount: ${:,.2f}\n".format(self.principal)
+        output += "Interest Rate: {:.2f}%\n".format(self.interest_rate)
+        output += "Loan Duration: {} years\n".format(self.duration)
+        monthly_payment = self.calculate_monthly_payment()
+        output += "Monthly Payment: ${:,.2f}\n".format(monthly_payment)
+        total_payment = monthly_payment * self.duration * 12
+        output += "Total Payment: ${:,.2f}\n".format(total_payment)
+        return output
+
+# Main program
+loans = []
+
+while True:
+    print("\nStudent Loan System Menu:")
+    print("1. Add Student Loan")
+    print("2. View Loan Details")
+    print("3. Exit")
+    choice = input("Enter your choice (1/2/3): ")
+
+    if choice == "1":
+        name = input("Enter student name: ")
+        try:
+            principal = float(input("Enter loan principal amount: "))
+            if principal <= 0:
+                raise ValueError
+            interest_rate = float(input("Enter annual interest rate (%): "))
+            if interest_rate <= 0:
+                raise ValueError
+            duration = int(input("Enter loan duration in years: "))
+            if duration <= 0:
+                raise ValueError
+            loan = StudentLoan(name, principal, interest_rate, duration)
+            loans.append(loan)
+            print("Loan added successfully!")
+        except ValueError:
+            print("Invalid input. Please enter positive numbers.")
+
+    elif choice == "2":
+        if not loans:
+            print("No loans to display.")
+        else:
+            for i, loan in enumerate(loans):
+                print(f"\nLoan {i + 1}:")
+                print(loan)
+
+    elif choice == "3":
+        print("Exiting the Student Loan System. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice. Please choose 1, 2, or 3.")
