@@ -1,0 +1,240 @@
+import datetime
+import random
+now = datetime.datetime.now()
+
+print("----- FARE PAYMENT SYSTEM -----")
+print()
+conductor = input("Conductor's Name: ")
+print("\n\n")
+
+# Origins and Destinations
+print(" ---Origins and Destinations---")
+print("================================")
+print("BU │ Bulua Terminal\nPA │ Patag\nCA │ Carmen \nCT │ Cathedral\nCO │ Cogon\nDI │ Divisoria")
+print("--------------------------------")
+print("Minimum Fare              ₱11.00")
+print("--------------------------------")
+origin = input("Enter Origin Code:            ").upper()
+destination = input("Enter Destination Code:       ").upper()
+print("================================")
+print("\n")
+
+# Variables
+BU = "Bulua Terminal"
+PA = "Patag"
+CA = "Carmen"
+CT = "Cathedral"
+CO = "Cogon"
+DI = "Divisoria"
+
+# Transaction
+fare = 0
+print("================================")
+if origin == "BU" and destination == "CO":
+    fare = 15.00
+    print("Fare:                    ₱ 15.00")
+
+elif origin == "BU" and destination == "DI":
+    fare = 15.00
+    print("Fare:                    ₱ 15.00")
+
+elif origin == "CO" and destination == "BU":
+    fare = 15.00
+    print("Fare:                    ₱ 15.00")
+
+elif origin == "DI" and destination == "BU":
+    fare = 15.00
+    print("Fare:                    ₱ 15.00")
+
+elif origin == "BU" and destination == "PA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "BU" and destination == "CA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "BU" and destination == "CT":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "PA" and destination == "BU":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "PA" and destination == "CA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "PA" and destination == "CT":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "PA" and destination == "CO":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "PA" and destination == "DI":
+    fare = 11.00
+    print("Fare:                    ₱ 15.00")
+
+elif origin == "CA" and destination == "BU":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CA" and destination == "PA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CA" and destination == "CT":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CA" and destination == "CO":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CA" and destination == "DI":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CT" and destination == "BU":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CT" and destination == "PA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CT" and destination == "CA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CT" and destination == "CO":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CT" and destination == "DI":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CO" and destination == "PA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CO" and destination == "CA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CO" and destination == "CT":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "CO" and destination == "DI":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "DI" and destination == "PA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "DI" and destination == "CA":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "DI" and destination == "CT":
+    fare = 11.00
+    print("Fare:                    ₱ 11.00")
+
+elif origin == "DI" and destination == "CO":
+    fare = 15.00
+    print("Fare:                    ₱ 15.00")
+
+else:
+    print("Invalid Input")
+    print("================================")
+    print("\n")
+    quit()
+
+while 1:
+    try:
+        passenger = int(input("Passenger(s):                  "))
+        break
+
+    except ValueError:
+        print("Invalid Input")
+        print("--------------------------------")
+
+    while 1:
+        total = (fare * passenger)
+        if total > 0:
+            print("Total:                    ₱", total)
+            money = float(input("Money Given:              ₱ "))
+            print("================================")
+            print("\n\n\n\n")
+
+        # Ticket Printing
+            if money >= total:
+                print("================================")
+                print("         RECEIPT TICKET         ")
+                print("================================")
+                print(now.strftime("Date:                   %y-%m-%d"))
+                print(now.strftime("Time:                   %H:%M:%S"))
+                print("--------------------------------")
+                if origin == "BU":
+                    print("Origin:           Bulua Terminal")
+
+                elif origin == "PA":
+                    print("Origin:                    Patag")
+
+                elif origin == "CA":
+                    print("Origin:                   Carmen")
+
+                elif origin == "CT":
+                    print("Origin:                Cathedral")
+
+                elif origin == "CO":
+                    print("Origin:                    Cogon")
+
+                elif origin == "DI":
+                    print("Origin:                Divisoria")
+
+                if destination == "BU":
+                    print("Destination:      Bulua Terminal")
+
+                elif destination == "PA":
+                    print("Destination:               Patag")
+
+                elif destination == "CA":
+                    print("Destination:              Carmen")
+
+                elif destination == "CT":
+                    print("Destination:           Cathedral")
+
+                elif destination == "CO":
+                    print("Destination:               Cogon")
+
+                elif destination == "DI":
+                    print("Destination:           Divisoria")
+
+                print("--------------------------------")
+                print("Fare:                     ₱", fare)
+                print("Passenger(s):                 ", passenger)
+                print("Total:                    ₱", total)
+                print("Change:                   ₱", money - total)
+                print("--------------------------------")
+                print("Conductor:            ", conductor)
+                print("Ticket No. :             ", random.randint(00000, 99999))
+                print("--------------------------------")
+                print("     Thank You, Ride Again!     ")
+                print("================================")
+
+            elif money < total:
+                print("================================")
+                print("       Insufficient Money       ")
+                print("================================")
+
+        else:
+            print("--------------------------------")
+            print("Invalid Input")
+            print("================================")
